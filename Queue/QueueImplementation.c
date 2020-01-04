@@ -58,13 +58,26 @@ int dequeue () {
 
 /*Function to print the queue*/
 int display (){
-    int i;
-    for (i=front; i<=rear; i++){ //printing the queue from front to rear
+	int i;
+	if(isEmpty()){
+		printf("Queue is empty \n");
+	}
+	else {
+		for (i=front; i<=rear; i++){ //printing the queue from front to rear
         printf("%d ", queue[i]);
-    }
-    printf("\n");
+    	}
+    	 printf("\n");
+	}   
 }
 
+int peek (){
+	if(isEmpty()){
+		printf("Queue is empty \n");
+	}
+	else {
+		printf("Front is : %d\n",queue[front]); //display the front value of queueS
+	}
+}
 /*Main Function*/
 int main (){  
     int n;  
@@ -72,7 +85,8 @@ int main (){
     	printf("1. Enqueue \n");
     	printf("2. Dequeue \n");
     	printf("3. Display \n");
-    	printf("4. Exit \n");
+    	printf("4. Peek \n");
+    	printf("0. Exit \n");
     	
     	printf("Enter your choice : ");
     	scanf("%d",&n);
@@ -84,7 +98,9 @@ int main (){
     				break;
     		case 3:display();
     				break;
-    		case 4:exit(0);
+    		case 4:peek();
+    				break;
+    		case 0:exit(0);
 		}
 	}
 	return 0;  
